@@ -66,6 +66,9 @@ RUN wget -q -O vectortiles-plugin.zip https://master.dl.sourceforge.net/project/
 	&& unzip -o -d /geoserver/webapps/geoserver/WEB-INF/lib/ vectortiles-plugin.zip \
 	&& rm vectortiles-plugin.zip
 
+# CROS
+COPY ./web.xml /geoserver/webapps/geoserver/WEB-INF/web.xml
+
 WORKDIR /geoserver
 
 EXPOSE 8080
