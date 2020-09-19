@@ -1,5 +1,14 @@
 version: '3.8'
 
+networks:
+  dev_net:
+    name: dev_net
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.90.5.0/24"
+        - subnet: "2001:3984:3998::/64"
+
 services:
   geoserver:
     build:
@@ -12,3 +21,7 @@ services:
       - ${DATA_PATH}:/data
     environment:
       - GEOSERVER_DATA_DIR=/data
+    networks:
+      dev_net:
+        ipv4_address: 172.90.5.101
+        ipv6_address: 2001:3984:3998::101
