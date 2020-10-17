@@ -10,7 +10,10 @@ RUN apt-get update -y && apt-get install -y \
     # JDK for spark client
     openjdk-8-jre default-jre --no-install-recommends
 
-ARG VERSION=2.18-RC
+ARG VERSION=2.18.0
+
+# https://master.dl.sourceforge.net/project/geoserver/GeoServer/2.18.0/geoserver-2.18.0-bin.zip
+# https://master.dl.sourceforge.net/project/geoserver/GeoServer/$VERSION/geoserver-$VERSION-bin.zip
 
 # 
 # Geoserver
