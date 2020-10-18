@@ -19,6 +19,7 @@ services:
       - "0.0.0.0:8080:8080"
     volumes:
       - ${GEOSERVER_DATA_PATH}:/data
+      - ${DATA_PATH}:/geodata
     environment:
       - GEOSERVER_DATA_DIR=/data
     networks:
