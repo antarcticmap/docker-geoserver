@@ -11,3 +11,10 @@ docker-compose build --no-cache
 ```bash
 docker-compose up -d
 ```
+
+## the `.env`
+
+```bash
+GEOSERVER_DATA_PATH=
+DATA_PATH=
+```
