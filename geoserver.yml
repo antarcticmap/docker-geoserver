@@ -38,7 +38,7 @@ spec:
       dnsPolicy: "None"
       dnsConfig:
         nameservers:
-          - 114.114.114.114
+          - 1.1.1.1
       containers:
       - name: geoserver
         image: antarcticmap/geoserver:2.18.0
