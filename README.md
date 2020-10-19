@@ -1,5 +1,21 @@
 # Docker geoserver
 
+## Quick start
+
+```
+docker pull antarcticmap/geoserver:2.18.0
+docker run --name geoserver -d -p 0.0.0.0:8080:8080 antarcticmap/geoserver:2.18.0
+```
+
+Address: `http://127.0.0.1:8080`
+Username/Password: `admin` / `geoserver`
+
+To remove the contianer:
+```bash
+docker stop geoserver
+docker rm geoserver
+```
+
 ## the `.env`
 
 ```bash
