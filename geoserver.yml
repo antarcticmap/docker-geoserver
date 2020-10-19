@@ -1,0 +1,62 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: geoserver
+  labels:
+    run: geoserver
+spec:
+    selector: 
+      app: geoserver
+    type: NodePort
+    ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30051
+      name: http
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: geoserver
+  labels:
+    app: geoserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: geoserver
+  template:
+    metadata:
+      labels:
+        app: geoserver
+    spec:
+      imagePullSecrets:
+      - name: registrypullsecret
+      dnsPolicy: "None"
+      dnsConfig:
+        nameservers:
+          - 114.114.114.114
+      containers:
+      - name: geoserver
+        image: antarcticmap/geoserver:2.18.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        env:
+        - name: GEOSERVER_DATA_DIR
+          value: "/data"
+        volumeMounts:
+        - name: data-files
+          mountPath: /data
+        - name: geodata
+          mountPath: /geodata
+      volumes:
+      - name: data-files
+        hostPath:
+          path: __GEOSERVER_DATA_PATH__
+      - name: geodata
+        hostPath:
+          path: __DATA_PATH__

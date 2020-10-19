@@ -1,0 +1,6 @@
+.git
+docker-compose.yml
+geoserver.yml
+Dockerfile
+README.md
+.gitignore
