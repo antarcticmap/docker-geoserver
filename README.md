@@ -18,3 +18,8 @@ docker-compose build --no-cache
 ```bash
 docker-compose up -d
 ```
+
+## Access
+
+* `http://127.0.0.1:8080`
+* default username and password: `admin` / `geoserver`
