@@ -35,10 +35,6 @@ spec:
     spec:
       imagePullSecrets:
       - name: registrypullsecret
-      dnsPolicy: "None"
-      dnsConfig:
-        nameservers:
-          - 1.1.1.1
       containers:
       - name: geoserver
         image: antarcticmap/geoserver:2.18.0

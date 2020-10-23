@@ -4,6 +4,7 @@ stages:
 
 build:
   stage: build
+  when: manual
   script:
     - docker-compose build
     - docker push antarcticmap/geoserver:2.18.0
@@ -16,6 +17,7 @@ build:
 
 deploy:
   stage: deploy
+  when: manual
   script:
     - sed -i "s@__GEOSERVER_DATA_PATH__@$GEOSERVER_DATA_PATH@g" geoserver.yml
     - sed -i "s@__DATA_PATH__@$DATA_PATH@g" geoserver.yml
