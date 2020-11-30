@@ -2,6 +2,11 @@
 
 ## Quickstart
 
+### Requirements:
+
+- Docker installed (install docker-compose if it is not included in your docker client)
+- Clone this project to your workspace
+
 ### 1. Preparing data:
 
 1. Unarchive the `geoserver_data.tar.gz` to `geoserver_data`
