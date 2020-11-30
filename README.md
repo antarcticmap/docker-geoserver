@@ -10,7 +10,7 @@
 tar -xzvf ./geoserver_data.tar.gz
 ```
 
-2. Download the `https://antarctic.freeyeti.net/data/download/antarctic.tar.bz2` and unarchive to `./geodata/antarctic`
+2. Download the `https://antarctic.freeyeti.net/data/download/antarctic.tar.bz2` (~458MB) and unarchive to `./geodata/antarctic`
 
 ```bash
 mkdir ./geodata
@@ -26,7 +26,7 @@ docker-compose pull
 docker-compose up -d --no-build
 ```
 
-### Accessing
+### 3. Accessing
 
 - `http://127.0.0.1:8080`
 - default username and password: `admin` / `geoserver`
