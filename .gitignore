@@ -5,6 +5,10 @@
 
 # User-specific stuff:
 .idea
+geodata
+geoserver_data
+antarctic.tar.bz2
+antarctic.tar.gz
 
 # CMake
 cmake-build-debug/
@@ -92,7 +96,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+# .env
 
 *.DS_Store
 public/dist/*
@@ -137,8 +141,6 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
-
-.env
 
 # PyBuilder
 target/

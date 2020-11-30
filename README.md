@@ -2,25 +2,53 @@
 
 ## Quick start
 
-```
-docker pull antarcticmap/geoserver:2.18.0
-docker run --name geoserver -d -p 0.0.0.0:8080:8080 antarcticmap/geoserver:2.18.0
-```
+### 1. Preparing data
 
-Address: `http://127.0.0.1:8080`
-Username/Password: `admin` / `geoserver`
+1. Unarchive the `geoserver_data.tar.gz` to `geoserver_data`
 
-To remove the contianer:
 ```bash
-docker stop geoserver
-docker rm geoserver
+tar -xzvf ./geoserver_data.tar.gz
+```
+
+2. Download the `https://antarctic.freeyeti.net/data/download/antarctic.tar.bz2` and unarchive to `./geodata/antarctic`
+
+```bash
+mkdir ./geodata
+cd ./geodata
+wget https://antarctic.freeyeti.net/data/download/antarctic.tar.bz2
+tar -jxvf ./antarctic.tar.bz2
+```
+
+### 2. To start geoserver
+
+```bash
+docker-compose pull
+docker-compose up -d --no-build
+```
+
+### Accessing
+
+- `http://127.0.0.1:8080`
+- default username and password: `admin` / `geoserver`
+
+## Data Source
+
+- Polar view: https://www.polarview.aq/antarctic
+- LIMA: https://lima.usgs.gov/access.php
+- REMA: https://www.pgc.umn.edu/data/rema/
+- BAS: https://www.bas.ac.uk/
+
+## To remove the contianer:
+
+```bash
+docker-compose down
 ```
 
 ## the `.env`
 
 ```bash
-GEOSERVER_DATA_PATH=  # geoserver data dir
-DATA_PATH= # other data, if you need
+GEOSERVER_DATA_PATH=  # geoserver data dir, including workspaces, styles, etc.
+DATA_PATH= # Mapping data
 ```
 
 ## Build
@@ -29,13 +57,9 @@ DATA_PATH= # other data, if you need
 docker-compose build --no-cache
 ```
 
-## Start the GeoServer
+## Other usage
 
 ```bash
-docker-compose up -d
+docker pull antarcticmap/geoserver:2.18.0
+docker run --name geoserver -d -p 0.0.0.0:8080:8080 antarcticmap/geoserver:2.18.0
 ```
-
-## Access
-
-* `http://127.0.0.1:8080`
-* default username and password: `admin` / `geoserver`
