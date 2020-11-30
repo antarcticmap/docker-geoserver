@@ -1,8 +1,8 @@
 # Docker geoserver
 
-## Quick start
+## Quickstart
 
-### 1. Preparing data
+### 1. Preparing data:
 
 1. Unarchive the `geoserver_data.tar.gz` to `geoserver_data`
 
@@ -19,26 +19,26 @@ wget https://antarctic.freeyeti.net/data/download/antarctic.tar.bz2
 tar -jxvf ./antarctic.tar.bz2
 ```
 
-### 2. To start geoserver
+### 2. To start GeoServer:
 
 ```bash
 docker-compose pull
 docker-compose up -d --no-build
 ```
 
-### 3. Accessing
+### 3. Accessing:
 
 - `http://127.0.0.1:8080`
 - default username and password: `admin` / `geoserver`
 
-## Data Source
+## Data Source:
 
 - Polar view: https://www.polarview.aq/antarctic
 - LIMA: https://lima.usgs.gov/access.php
 - REMA: https://www.pgc.umn.edu/data/rema/
 - BAS: https://www.bas.ac.uk/
 
-## To remove the contianer:
+## To remove the container:
 
 ```bash
 docker-compose down
@@ -57,7 +57,7 @@ DATA_PATH= # Mapping data
 docker-compose build --no-cache
 ```
 
-## Other usage
+## Other usages
 
 ```bash
 docker pull antarcticmap/geoserver:2.18.0
