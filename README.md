@@ -65,6 +65,6 @@ docker-compose build --no-cache
 ## Other usages
 
 ```bash
-docker pull antarcticmap/geoserver:2.18.0
-docker run --name geoserver -d -p 0.0.0.0:8080:8080 antarcticmap/geoserver:2.18.0
+docker pull antarcticmap/geoserver:2.18.1
+docker run --name geoserver -d -p 0.0.0.0:8080:8080 antarcticmap/geoserver:2.18.1
 ```

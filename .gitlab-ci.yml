@@ -7,13 +7,12 @@ build:
   when: manual
   script:
     - docker-compose build
-    - docker push antarcticmap/geoserver:2.18.0
+    - docker push antarcticmap/geoserver:2.18.1
   only:
     - master
   tags:
     - shell
     - deploy
-  
 
 deploy:
   stage: deploy
@@ -21,7 +20,7 @@ deploy:
   script:
     - sed -i "s@__GEOSERVER_DATA_PATH__@$GEOSERVER_DATA_PATH@g" geoserver.yml
     - sed -i "s@__DATA_PATH__@$DATA_PATH@g" geoserver.yml
-    - microk8s kubectl apply -f geoserver.yml 
+    - microk8s kubectl apply -f geoserver.yml
   environment:
     name: production
     url: https://geoserver.freeyeti.net/
@@ -30,4 +29,3 @@ deploy:
   tags:
     - shell
     - deploy
-  

@@ -6,10 +6,10 @@ metadata:
   labels:
     run: geoserver
 spec:
-    selector: 
-      app: geoserver
-    type: NodePort
-    ports:
+  selector:
+    app: geoserver
+  type: NodePort
+  ports:
     - protocol: TCP
       port: 8080
       targetPort: 8080
@@ -34,25 +34,25 @@ spec:
         app: geoserver
     spec:
       imagePullSecrets:
-      - name: registrypullsecret
+        - name: registrypullsecret
       containers:
-      - name: geoserver
-        image: antarcticmap/geoserver:2.18.0
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 8080
-        env:
-        - name: GEOSERVER_DATA_DIR
-          value: "/data"
-        volumeMounts:
-        - name: data-files
-          mountPath: /data
-        - name: geodata
-          mountPath: /geodata
+        - name: geoserver
+          image: antarcticmap/geoserver:2.18.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: GEOSERVER_DATA_DIR
+              value: "/data"
+          volumeMounts:
+            - name: data-files
+              mountPath: /data
+            - name: geodata
+              mountPath: /geodata
       volumes:
-      - name: data-files
-        hostPath:
-          path: __GEOSERVER_DATA_PATH__
-      - name: geodata
-        hostPath:
-          path: __DATA_PATH__
+        - name: data-files
+          hostPath:
+            path: __GEOSERVER_DATA_PATH__
+        - name: geodata
+          hostPath:
+            path: __DATA_PATH__
