@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: antarcticmap/geoserver:2.18.0
+    image: antarcticmap/geoserver:2.18.1
     ports:
       - "0.0.0.0:8080:8080"
     volumes:
