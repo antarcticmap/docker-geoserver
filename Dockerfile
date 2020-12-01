@@ -1,16 +1,20 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 # COPY ./proxy.conf /etc/apt/apt.conf.d/proxy.conf
 
 RUN apt-get update -y && apt-get install -y \
 	#
 	# Tools
-	vim wget unzip \
-    #
-    # JDK for spark client
-    openjdk-8-jre default-jre --no-install-recommends
+	wget unzip \
+	#
+	# JDK for spark client
+	openjdk-8-jre default-jre --no-install-recommends \
+	#
+	# prune image
+	&& apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
+	
 
-ARG VERSION=2.18.0
+ARG VERSION=2.18.1
 
 # https://master.dl.sourceforge.net/project/geoserver/GeoServer/2.18.0/geoserver-2.18.0-bin.zip
 # https://master.dl.sourceforge.net/project/geoserver/GeoServer/$VERSION/geoserver-$VERSION-bin.zip
