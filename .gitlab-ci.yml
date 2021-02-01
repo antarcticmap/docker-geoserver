@@ -12,7 +12,7 @@ build:
     - master
   tags:
     - shell
-    - deploy
+    - build
 
 deploy:
   stage: deploy
@@ -20,10 +20,12 @@ deploy:
   script:
     - sed -i "s@__GEOSERVER_DATA_PATH__@$GEOSERVER_DATA_PATH@g" geoserver.yml
     - sed -i "s@__DATA_PATH__@$DATA_PATH@g" geoserver.yml
-    - microk8s kubectl apply -f geoserver.yml
+    - kubectl apply -f geoserver.yaml
+    - kubectl apply -f clusterissuer.yaml
+    - kubectl apply -f ingress.yaml
   environment:
     name: production
-    url: https://geoserver.freeyeti.net/
+    url: https://geo.freeyeti.net/
   only:
     - master
   tags:
