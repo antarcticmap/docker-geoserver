@@ -7,7 +7,7 @@ build:
   when: manual
   script:
     - docker-compose build
-    - docker push antarcticmap/geoserver:2.18.1
+    - docker push antarcticmap/geoserver:2.18.2
   only:
     - master
   tags:

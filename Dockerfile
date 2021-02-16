@@ -14,7 +14,7 @@ RUN apt-get update -y && apt-get install -y \
 	&& apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
 	
 
-ARG VERSION=2.18.1
+ARG VERSION=2.18.2
 
 # https://master.dl.sourceforge.net/project/geoserver/GeoServer/2.18.0/geoserver-2.18.0-bin.zip
 # https://master.dl.sourceforge.net/project/geoserver/GeoServer/$VERSION/geoserver-$VERSION-bin.zip
