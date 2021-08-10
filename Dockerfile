@@ -14,7 +14,7 @@ RUN apt-get update -y && apt-get install -y \
 	&& apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
 	
 
-ARG VERSION=2.18.2
+ARG VERSION=2.19.2
 
 # https://master.dl.sourceforge.net/project/geoserver/GeoServer/2.18.0/geoserver-2.18.0-bin.zip
 # https://master.dl.sourceforge.net/project/geoserver/GeoServer/$VERSION/geoserver-$VERSION-bin.zip
@@ -72,6 +72,11 @@ RUN wget -q -O netcdf-plugin.zip https://master.dl.sourceforge.net/project/geose
 RUN wget -q -O vectortiles-plugin.zip https://master.dl.sourceforge.net/project/geoserver/GeoServer/$VERSION/extensions/geoserver-$VERSION-vectortiles-plugin.zip \
 	&& unzip -o -d /geoserver/webapps/geoserver/WEB-INF/lib/ vectortiles-plugin.zip \
 	&& rm vectortiles-plugin.zip
+
+# pregeneralized
+RUN wget -q -O pregeneralized-plugin.zip https://cfhcable.dl.sourceforge.net/project/geoserver/GeoServer/$VERSION/extensions/geoserver-$VERSION-feature-pregeneralized-plugin.zip \
+	&& unzip -o -d /geoserver/webapps/geoserver/WEB-INF/lib/ pregeneralized-plugin.zip \
+	&& rm pregeneralized-plugin.zip
 
 # CROS
 COPY ./web.xml /geoserver/webapps/geoserver/WEB-INF/web.xml
