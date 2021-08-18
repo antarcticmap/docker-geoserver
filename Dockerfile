@@ -10,6 +10,8 @@ RUN apt-get update -y && apt-get install -y \
 	# JDK for spark client
 	openjdk-8-jre default-jre --no-install-recommends \
 	#
+	# Fonts
+	fonts-noto-cjk fonts-noto-hinted fonts-noto-unhinted fonts-hanazono ttf-unifont \
 	# prune image
 	&& apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
 	
