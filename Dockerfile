@@ -80,7 +80,11 @@ RUN wget -q -O pregeneralized-plugin.zip https://master.dl.sourceforge.net/proje
 	&& unzip -o -d /geoserver/webapps/geoserver/WEB-INF/lib/ pregeneralized-plugin.zip \
 	&& rm pregeneralized-plugin.zip
 
-RUN wget -q -O gwc-plugin.zip https://master.dl.sourceforge.net/project/geoserver/GeoServer/$VERSION/extensions/geoserver-$VERSION-printing-plugin.zip \
+RUN wget -q -O printing-plugin.zip https://master.dl.sourceforge.net/project/geoserver/GeoServer/$VERSION/extensions/geoserver-$VERSION-printing-plugin.zip \
+	&& unzip -o -d /geoserver/webapps/geoserver/WEB-INF/lib/ printing-plugin.zip \
+	&& rm printing-plugin.zip
+
+RUN wget -q -O gwc-plugin.zip https://master.dl.sourceforge.net/project/geoserver/GeoServer/$VERSION/extensions/geoserver-$VERSION-gwc-s3-plugin.zip \
 	&& unzip -o -d /geoserver/webapps/geoserver/WEB-INF/lib/ gwc-plugin.zip \
 	&& rm gwc-plugin.zip
 
