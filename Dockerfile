@@ -76,9 +76,13 @@ RUN wget -q -O vectortiles-plugin.zip https://master.dl.sourceforge.net/project/
 	&& rm vectortiles-plugin.zip
 
 # pregeneralized
-RUN wget -q -O pregeneralized-plugin.zip https://cfhcable.dl.sourceforge.net/project/geoserver/GeoServer/$VERSION/extensions/geoserver-$VERSION-feature-pregeneralized-plugin.zip \
+RUN wget -q -O pregeneralized-plugin.zip https://master.dl.sourceforge.net/project/geoserver/GeoServer/$VERSION/extensions/geoserver-$VERSION-feature-pregeneralized-plugin.zip \
 	&& unzip -o -d /geoserver/webapps/geoserver/WEB-INF/lib/ pregeneralized-plugin.zip \
 	&& rm pregeneralized-plugin.zip
+
+RUN wget -q -O gwc-plugin.zip https://master.dl.sourceforge.net/project/geoserver/GeoServer/$VERSION/extensions/geoserver-$VERSION-printing-plugin.zip \
+	&& unzip -o -d /geoserver/webapps/geoserver/WEB-INF/lib/ gwc-plugin.zip \
+	&& rm gwc-plugin.zip
 
 # CROS
 COPY ./web.xml /geoserver/webapps/geoserver/WEB-INF/web.xml
