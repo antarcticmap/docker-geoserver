@@ -1,6 +1,4 @@
-FROM ubuntu:20.04
-
-# COPY ./proxy.conf /etc/apt/apt.conf.d/proxy.conf
+FROM ubuntu:22.04
 
 RUN apt-get update -y && apt-get install -y \
 	#
@@ -11,12 +9,12 @@ RUN apt-get update -y && apt-get install -y \
 	openjdk-8-jre default-jre --no-install-recommends \
 	#
 	# Fonts
-	fonts-noto-cjk fonts-noto-hinted fonts-noto-unhinted fonts-hanazono ttf-unifont \
+	fonts-noto-cjk fonts-noto-hinted fonts-noto-unhinted fonts-hanazono \
 	# prune image
 	&& apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
 	
 
-ARG VERSION=2.19.2
+ARG VERSION=2.20.4
 
 # https://master.dl.sourceforge.net/project/geoserver/GeoServer/2.18.0/geoserver-2.18.0-bin.zip
 # https://master.dl.sourceforge.net/project/geoserver/GeoServer/$VERSION/geoserver-$VERSION-bin.zip
@@ -89,7 +87,7 @@ RUN wget -q -O gwc-plugin.zip https://master.dl.sourceforge.net/project/geoserve
 	&& rm gwc-plugin.zip
 
 # CROS
-COPY ./web.xml /geoserver/webapps/geoserver/WEB-INF/web.xml
+COPY ./web.2.20.4.xml /geoserver/webapps/geoserver/WEB-INF/web.xml
 
 WORKDIR /geoserver
 
